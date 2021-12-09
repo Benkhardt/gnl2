@@ -6,14 +6,13 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 19:39:09 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/09 22:55:55 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/09 23:26:49 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 char	*next_run(char *store)
 {
