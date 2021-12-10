@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 19:39:09 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/09 23:26:49 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/10 15:34:28 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,14 @@ char	*get_next_line(int fd)
 	store = read_from_fd(fd, store);
 	if (store == NULL)
 		return (NULL);
+	if (store[0] == '\0')
+		free(store);
 	rtn = line_to_rtn(store);
-	store = next_run(store);
 	if (rtn[0] == '\0')
 	{
 		free(rtn);
 		return (NULL);
 	}
+	store = next_run(store);
 	return (rtn);
 }
