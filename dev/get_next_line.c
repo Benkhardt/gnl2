@@ -13,21 +13,7 @@
 #include "get_next_line.h"
 #include <unistd.h>
 #include <stdlib.h>
-
-/*
-**
-** get_next_line() will read from fd
-** returning line after line. Returning
-** NULL if an error occurs or nothing
-** else is left to return.
-**
-*/
-
-/*
-** next_run() builds a string
-** from what was already read
-** and after a "nl" char
-*/
+#include <stdio.h>
 
 char	*next_run(char *store)
 {
@@ -52,17 +38,9 @@ char	*next_run(char *store)
 		rtn[j++] = store[i++];
 	rtn[j] = '\0';
 	free(store);
+	// printf("DEBUGnr(%s)", rtn);
 	return (rtn);
 }
-
-/*
-** read_from_fd() reads from file descriptor
-** into char *buf(malloc'd with BUFFER_SIZE + 1)
-** and then uses a modified version of strjoin
-** to build a string. It also checks for error
-** in read(), returning NULL if read's return
-** value is -1.
-*/
 
 char	*read_from_fd(int fd, char *store)
 {
@@ -85,15 +63,9 @@ char	*read_from_fd(int fd, char *store)
 		store = ft_strjoin(store, buf);
 	}
 	free(buf);
+	// printf("DEBUGrff(%s)", store);
 	return (store);
 }
-
-/*
-** line_to_rtn() builds the string including
-** the "nl" char if there is a "nl".
-** Returning NULL if allocation fails or
-** nothing's left to return.
-*/
 
 char	*line_to_rtn(char *store)
 {
@@ -112,9 +84,11 @@ char	*line_to_rtn(char *store)
 	{
 		rtn[i] = '\n';
 		rtn[i + 1] = '\0';
+		// printf("DEBUGltr(%s)", rtn);
 		return (rtn);
 	}
 	rtn[i] = '\0';
+	// printf("DEBUGltr(%s)", rtn);
 	return (rtn);
 }
 
